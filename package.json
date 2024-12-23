@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "find build -type f -name '*.js' -exec sed -i 's/src=\\\"\\/static/src=\\\"\\/static\\?v=$BUILD_ID/g' {} +"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
